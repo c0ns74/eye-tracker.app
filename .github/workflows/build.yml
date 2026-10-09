@@ -40,14 +40,10 @@ jobs:
       run: |
         git config --global http.postBuffer 524288000
         git config --global http.version HTTP/1.1
-
-    - name: Compilar APK con Buildozer
-      env:
-        ANDROID_HOME: /usr/local/lib/android/sdk
-        ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
-        PATH: /usr/local/lib/android/sdk/build-tools/33.0.2:/usr/local/lib/android/sdk/cmdline-tools/latest/bin:/usr/bin:${{ env.PATH }}
-      run: |
-        yes | buildozer -v android debug
+# En lugar de: yes | buildozer -v android debug
+# Pon únicamente esto:
+- name: Compilar APK con Buildozer
+  run: buildozer -v android debug
 
     - name: Subir APK como artefacto
       if: success()
