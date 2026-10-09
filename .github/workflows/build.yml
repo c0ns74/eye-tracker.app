@@ -31,12 +31,10 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Instalar dependencias completas del sistema
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev libltdl-dev
-        python -m pip install --upgrade pip setuptools wheel
-        pip install "cython<3.0.0" "buildozer==1.5.0"
+    -- name: Install dependencies
+  run: |
+    sudo apt-get update
+    sudo apt-get install -y build-essential libffi-dev libssl-dev ccache git zip unzip openjdk-17-jdk
 
     - name: Ajustar limites de red en Git
       run: |
