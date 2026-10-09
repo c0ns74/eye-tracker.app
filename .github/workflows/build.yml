@@ -31,23 +31,26 @@ jobs:
       with:
         python-version: '3.10'
 
-    -- name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y build-essential libffi-dev libssl-dev ccache git zip unzip openjdk-17-jdk
+    - name: Instalar dependencias del sistema y Buildozer
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libffi-dev libssl-dev ccache git zip unzip openjdk-17-jdk
+        pip install --upgrade pip setuptools
+        pip install buildozer cython
 
     - name: Ajustar limites de red en Git
       run: |
         git config --global http.postBuffer 524288000
         git config --global http.version HTTP/1.1
-# En lugar de: yes | buildozer -v android debug
-# Pon únicamente esto:
-- name: Compilar APK con Buildozer
-  run: buildozer -v android debug
+
+    - name: Compilar APK con Buildozer
+      run: buildozer -v android debug
 
     - name: Subir APK como artefacto
       if: success()
       uses: actions/upload-artifact@v4
       with:
+        name: app-debug-apk
+        path: bin/*.apk
         name: app-debug-apk
         path: bin/*.apk
