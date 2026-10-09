@@ -5,7 +5,7 @@ package.domain = org.test
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
-requirements = python3,kivy
+requirements = requirements = python3==3.11.0,kivy
 
 orientation = portrait
 osx.python_version = 3
