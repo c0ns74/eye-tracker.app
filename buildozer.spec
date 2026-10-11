@@ -1,24 +1,32 @@
 [app]
+
+# (str) Title of your application
 title = Eye Tracker
+
+# (str) Package name
 package.name = eyetracker
+
+# (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
 
+# (str) Source code where the main.py live
 source.dir = .
-source.include_exts = py,png,jpg,jpeg,kv,atlas,xml
-version = 0.1
 
+# (list) Source files to include (include xml for haarcascade)
+source.include_exts = py,png,jpg,kv,atlas,xml
+
+# (list) Application requirements
+# NOTA: Usar opencv nativo y NO opencv-python-headless
 requirements = python3,kivy,numpy,opencv
 
+# (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
+
+# (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-android.permissions = CAMERA,INTERNET
-android.api = 33
-android.minapi = 23
-android.archs = arm64-v8a
+# (list) Permissions
+permissions = CAMERA, INTERNET
 
-android.accept_sdk_license = True
-
-[buildozer]
-log_level = 2
-warn_on_root = 1
+# =========================================================
+# Android specific
