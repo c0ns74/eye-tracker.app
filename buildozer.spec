@@ -52,7 +52,7 @@ android.archs = arm64-v8a
 [buildozer]
 
 # (int) Log level
-log_level = 2
+log_level = 1
 
 # (int) Display warning if buildozer is run as root
 warn_on_root = 1
