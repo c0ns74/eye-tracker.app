@@ -19,7 +19,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,xml
 
 # (list) Application requirements
-requirements = python3,kivy,numpy,opencv
+requirements = python3,kivy==2.2.1,numpy,opencv
 
 # (str) Supported orientation
 orientation = portrait
