@@ -9,17 +9,19 @@ package.name = eyetracker
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
 
+# (str) Application version
+version = 0.1
+
 # (str) Source code where the main.py live
 source.dir = .
 
-# (list) Source files to include (include xml for haarcascade)
+# (list) Source files to include
 source.include_exts = py,png,jpg,kv,atlas,xml
 
 # (list) Application requirements
-# NOTA: Usar opencv nativo y NO opencv-python-headless
 requirements = python3,kivy,numpy,opencv
 
-# (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
+# (str) Supported orientation
 orientation = portrait
 
 # (bool) Indicate if the application should be fullscreen or not
@@ -30,3 +32,27 @@ permissions = CAMERA, INTERNET
 
 # =========================================================
 # Android specific
+# =========================================================
+
+# (int) Minimum API required (API 24 para NumPy)
+android.minapi = 24
+
+# (int) Target Android API
+android.api = 33
+
+# (int) NDK API to use
+android.ndk_api = 24
+
+# (bool) Accept SDK license automatically
+android.accept_sdk_license = True
+
+# (str) Android NDK architecture to build for
+android.archs = arm64-v8a
+
+[buildozer]
+
+# (int) Log level
+log_level = 2
+
+# (int) Display warning if buildozer is run as root
+warn_on_root = 1
